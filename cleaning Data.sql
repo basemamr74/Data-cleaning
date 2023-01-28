@@ -88,50 +88,6 @@ Select *
 From PortfolioProject.dbo.NashvilleHousing
 
 
-
-
-
-Select OwnerAddress
-From PortfolioProject.dbo.NashvilleHousing
-
-
-Select
-PARSENAME(REPLACE(OwnerAddress, ',', '.') , 3)
-,PARSENAME(REPLACE(OwnerAddress, ',', '.') , 2)
-,PARSENAME(REPLACE(OwnerAddress, ',', '.') , 1)
-From PortfolioProject.dbo.NashvilleHousing
-
-
-
-ALTER TABLE NashvilleHousing
-Add OwnerSplitAddress Nvarchar(255);
-
-Update NashvilleHousing
-SET OwnerSplitAddress = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 3)
-
-
-ALTER TABLE NashvilleHousing
-Add OwnerSplitCity Nvarchar(255);
-
-Update NashvilleHousing
-SET OwnerSplitCity = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 2)
-
-
-
-ALTER TABLE NashvilleHousing
-Add OwnerSplitState Nvarchar(255);
-
-Update NashvilleHousing
-SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 1)
-
-
-
-Select *
-From PortfolioProject.dbo.NashvilleHousing
-
-
-
-
 --------------------------------------------------------------------------------------------------------------------------
 
 
